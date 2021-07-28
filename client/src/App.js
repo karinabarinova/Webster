@@ -12,6 +12,7 @@ import Auth from './store/auth/auth';
 import FeedbackWidget from "./components/Feedback";
 import CookieConsentWidget from "./components/CookieConsentWidget";
 import MainPage from './components/MainPage'
+import GlobalStyle from './globalStyles';
 
 class App extends Component {
 
@@ -27,6 +28,7 @@ class App extends Component {
     return (
       <>
         <Auth>
+            <GlobalStyle />
             <Page>
                 {routes}
                 <FeedbackWidget />
