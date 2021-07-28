@@ -19,6 +19,8 @@ const NavStyles = styled.ul`
     background: none;
     border: 0;
     cursor: pointer;
+    text-decoration: none;
+    color: #000000;
     @media (max-width: 700px) {
       font-size: 10px;
       padding: 0 10px;
@@ -36,7 +38,7 @@ const NavStyles = styled.ul`
     }
     &:after {
       height: 2px;
-      background: red;
+      background: #6C63FF;
       content: '';
       width: 0;
       position: absolute;
