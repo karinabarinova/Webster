@@ -18,11 +18,11 @@ export default function EditInfoTab({user}) {
     const [passwordStyle, setPasswordStyle] = useState(false)
 
     const style = {
-        background: 'red', color: 'white', padding: '1rem', margin: '1rem', fontSize: 14
+        background: '#6C63FF', color: 'white', padding: '1rem', margin: '1rem', fontSize: 14
     }
 
     const style2 = {
-        background: 'indianred', color: 'white', padding: '1rem', margin: '1rem', fontSize: 14
+        background: '#6C63FF', color: 'white', padding: '1rem', margin: '1rem', fontSize: 14
     }
 
     function handleImageChange(e) {
@@ -111,7 +111,7 @@ export default function EditInfoTab({user}) {
                             variant="contained"
                             type="submit"
                             style={{
-                                background: 'red', color: 'white', padding: '1rem', margin: '1rem', fontSize: 14
+                                background: '#6C63FF', color: 'white', padding: '1rem', margin: '1rem', fontSize: 14
                             }}
                         > Upload 🖼️
                         </Button>

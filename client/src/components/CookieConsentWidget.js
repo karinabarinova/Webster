@@ -5,8 +5,8 @@ export default function CookieConsentWidget() {
         location="top"
         buttonText="Got it!"
         cookieName="myAwesomeCookieName2"
-        style={{ background: "#FF0000", color: '#ffffff', fontSize: "18px" }}
-        buttonStyle={{ color: "#FF0000", fontSize: "18px", backgroundColor: '#ffffff', borderRadius: '5px' }}
+        style={{ background: "#6C63FF", color: '#ffffff', fontSize: "18px" }}
+        buttonStyle={{ color: "#6C63FF", fontSize: "18px", backgroundColor: '#ffffff', borderRadius: '5px' }}
         expires={150}
     >
         This website uses cookies to enhance the user experience.

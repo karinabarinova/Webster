@@ -13,6 +13,10 @@ export default function Nav() {
         <NavStyles>
             { userData?.user?.id && (
                 <>
+                    <div style={{display: "flex", lineHeight: "100%"}}>
+                        <img src='/yas.png' width="55px" alt="yas"/>
+                        <Link to='/editor'>Editor</Link>
+                    </div>
                     <Link to='/account'>{t("ACCOUNT")}</Link>
                     <SignOut />
                 </>

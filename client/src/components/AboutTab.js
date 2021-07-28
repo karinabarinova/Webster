@@ -7,18 +7,17 @@ import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 
 function AboutTab({user}) {
-	console.log("user1", user)
 	let data = <h1>Page not found</h1>
 	if (user) {
 		data = (
-<div style={{width: '70%', maxWidth: 700, margin: 'auto' }}>
+		<div style={{width: '70%', maxWidth: 700, margin: 'auto' }}>
 			<div className="md:flex max-w-2xl">
 				<div className="flex flex-col flex-1 md:ltr:pr-32 md:rtl:pl-32">
 					<Card className="w-full mb-32 rounded-16 shadow">
                         <div style={{ padding: '1rem'}}>
                             <Avatar alt={user.name} src={user?.profile_picture ? "http://localhost:3006/" + 'uploads/' + user.profile_picture.replace('resources', '') : "/1.jpg"} style={{width: 150, height: 150, margin: 'auto'}} />
                         </div>
-						<AppBar position="static" elevation={1} style={{backgroundColor: 'red'}}>
+						<AppBar position="static" elevation={1} style={{backgroundColor: '#6C63FF'}}>
 							<Toolbar className="px-8">
 								<Typography color="inherit" className="flex-1 px-12 font-medium" style={{fontSize: 22}}>
 									General Information

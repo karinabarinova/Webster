@@ -11,7 +11,7 @@ function makeANiceEmail(text) {
         ">
             <h2>Hello There!</h2>
             <p>${text}</p>
-            <p>😘, UEvent</p>
+            <p>😘, Webster</p>
         </div>
     `
 }

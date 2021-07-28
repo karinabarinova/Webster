@@ -14,14 +14,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/karinabarinova/uevent.git"
+    "url": "git+https://github.com/karinabarinova/webster.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/karinabarinova/uevent/issues"
+    "url": "https://github.com/karinabarinova/webster/issues"
   },
-  "homepage": "https://github.com/karinabarinova/uevent#readme",
+  "homepage": "https://github.com/karinabarinova/webster#readme",
   "dependencies": {
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.19.0",

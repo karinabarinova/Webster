@@ -19,18 +19,12 @@ module.exports = {
     socialLogin
 }
 
-//TODO:  add forgotPassword,resetPassword,
-
 async function register(params) {
     if (await User.findOne({where: {email: params.email}})) {
-        // send already registered error in email to prevent account enumeration
-        // await sendAlreadyRegisteredEmail(params.email, origin);
         throw "Email is already taken";
     }
 
     const role = Role.includes(params.role) ? params.role : "user";
-
-    // create account object
     const user = await User.create({
         email: params.email,
         password: bcrypt.hashSync(params.password, 8),
@@ -60,7 +54,6 @@ async function login({email, password}) {
     // await user.getSubscription();
     return {
         ...basicDetails(user),
-        subscriptions: await user.getSubscriptions(),
         accessToken,
         expiresIn: 86400
     }
@@ -85,7 +78,6 @@ async function socialLogin(email) {
     // await user.getSubscription();
     return {
         ...basicDetails(user),
-        subscriptions: await user.getSubscriptions(),
         accessToken,
         expiresIn: 86400
     }
@@ -149,11 +141,11 @@ async function resetPassword({password, token}) {
 
 async function sendPasswordResetEmail(user) {
     let message = `Your password Reset Token is here!
-    <a href="http://localhost:3006/reset?token=${user.resetToken}">Click Here to reset</a>`;
+    <a href="http://localhost:3000/reset?token=${user.resetToken}">Click Here to reset</a>`;
 
     await sendEmail({
         to: user.email,
-        subject: 'UEvent - Reset Password',
+        subject: 'Webster - Reset Password',
         html: makeANiceEmail(`${message}`)
     });
 }
@@ -171,7 +163,7 @@ async function sendVerificationEmail(user, origin) {
 
     await sendEmail({
         to: user.email,
-        subject: 'UEvent - Verify Email',
+        subject: 'Webster - Verify Email',
         html: makeANiceEmail(`${message}`)
     });
 }
