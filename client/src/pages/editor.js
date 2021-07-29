@@ -5,6 +5,7 @@ import GridList from "@material-ui/core/GridList";
 import GridListTile from "@material-ui/core/GridListTile";
 import ListSubheader from "@material-ui/core/ListSubheader";
 import Button from '@material-ui/core/Button';
+import canvasToImage from 'canvas-to-image';
 
 import itemData from './BackgroundData';
 
@@ -45,6 +46,17 @@ const useStyles = makeStyles((theme) => ({
 	div: {
 		padding: '2rem'
 	},
+	divFlex: {
+		padding: '2rem',
+		width: "700px",
+    	height: "500px",
+    	margin: "1rem auto",
+    	border: "1px solid #ccc",
+		borderRadius: "5px",
+    	display: "flex",
+    	alignItems: "center",
+    	justifyContent: "space-evenly"
+	},
 	container: {
 		display: "flex",
 		alignItems: "center"
@@ -70,16 +82,43 @@ const useStyles = makeStyles((theme) => ({
 		fontWeight: 600,
 		fontSize: 26,
 		color: "#6C63FF"
+	},
+	hidden: {
+		display: 'none'
+	},
+	button: {
+		backgroundColor: "#6C63FF", 
+		color: 'white', 
+		fontWeight: 700
 	}
 }));
 
 export default function Editor() {
     const classes = useStyles();
 	const [src, setSrc] = useState('');
+	const [newImgData, setNewImgData] = useState('');
+
+	function saveAsJPG(canva) {
+		canvasToImage(canva, {
+			name: 'myJPG',
+			type: 'jpg',
+			quality: 1
+		});
+		setNewImgData('')
+	}
+
+	function saveAsPNG(canva) {
+		canvasToImage(canva, {
+			name: 'myPNG',
+			type: 'png',
+			quality: 1
+		});
+		setNewImgData('')
+	}
 
   return (
     <div>
-		<div className={classes.upload}>
+		<div className={newImgData ? classes.hidden : classes.upload}>
 			<div className={classes.div}>
 				<Button
 				  variant="contained"
@@ -105,7 +144,7 @@ export default function Editor() {
 				<span className={classes.content1}>Select ready to use image</span>
 			</div>
 		</div>
-		<div className={classes.root}>
+		<div className={newImgData ? classes.hidden : classes.root}>
         <GridList cellHeight={300} className={classes.gridList} cols={4}>
           <GridListTile key="Subheader" cols={4} style={{ height: "auto"}}>
             <ListSubheader className={classes.header} component="h3">Default Backgrounds</ListSubheader>
@@ -121,7 +160,37 @@ export default function Editor() {
     		show={!!src}
     		src={src}
     		onClose={() => setSrc('')}
+			onBeforeComplete={(props) => { console.log("props", props); return false; }}
+			onComplete={props => {
+				setNewImgData(props.canvas)
+			}}
     	/>
+		<div className={newImgData ? classes.divFlex : classes.hidden }>
+			<Button
+				variant="contained"
+				component="label"
+				className={classes.button}
+				onClick={() => saveAsJPG(newImgData)}
+			>
+				Save  as  JPG
+			</Button>
+			<Button
+				variant="contained"
+				component="label"
+				className={classes.button}
+				onClick={() => saveAsPNG(newImgData)}
+			>
+				Save  as  PNG
+			</Button>
+			<Button
+				variant="contained"
+				component="label"
+				className={classes.button}
+				onClick={() => saveAsJPG(newImgData)}
+			>
+				Save  as  PDF
+			</Button>
+		</div>
     </div>
   )
 }
