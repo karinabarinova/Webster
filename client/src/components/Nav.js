@@ -15,7 +15,7 @@ export default function Nav() {
                 <>
                     <div style={{display: "flex", lineHeight: "100%"}}>
                         <img src='/yas.png' width="55px" alt="yas"/>
-                        <Link to='/new-project'>+ Create new project</Link>
+                        <Link to='/new-project'>+ New project</Link>
                         <Link to='/editor2'>Editor2</Link>
                     </div>
                     <Link to='/profile'>{t("PROFILE")}</Link>
