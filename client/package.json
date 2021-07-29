@@ -19,6 +19,7 @@
     "filerobot-image-editor": "^3.12.17",
     "history": "^5.0.0",
     "i18next": "^20.3.1",
+    "jspdf": "^2.3.1",
     "jwt-decode": "^3.1.2",
     "lodash.debounce": "^4.0.8",
     "nprogress": "^0.2.0",
