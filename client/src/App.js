@@ -24,7 +24,7 @@ class App extends Component {
     		<Route path='/signin' exact component={SingIn}/>
     		<Route path='/reset' exact component={ResetPage} />
     		<Route path='/account' exact component={Account} />
-        <Route path='/editor' exact component={Editor} />
+        <Route path='/new-project' exact component={Editor} />
         <Route path='/editor2' exact component={Editor2} />
     		<Route path='/' exact component={MainPage}/>
     	</Switch>
