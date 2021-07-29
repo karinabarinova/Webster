@@ -18,7 +18,7 @@ export default function Nav() {
                         <Link to='/new-project'>+ Create new project</Link>
                         <Link to='/editor2'>Editor2</Link>
                     </div>
-                    <Link to='/account'>{t("ACCOUNT")}</Link>
+                    <Link to='/profile'>{t("PROFILE")}</Link>
                     <SignOut />
                 </>
             )}

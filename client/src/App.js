@@ -23,7 +23,7 @@ class App extends Component {
     	<Switch>
     		<Route path='/signin' exact component={SingIn}/>
     		<Route path='/reset' exact component={ResetPage} />
-    		<Route path='/account' exact component={Account} />
+    		<Route path='/profile' exact component={Account} />
         <Route path='/new-project' exact component={Editor} />
         <Route path='/editor2' exact component={Editor2} />
     		<Route path='/' exact component={MainPage}/>
