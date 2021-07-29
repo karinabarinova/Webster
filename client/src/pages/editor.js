@@ -85,7 +85,7 @@ export default function Editor() {
 				  variant="contained"
 				  component="label"
 				>
-			  		Upload File
+			  		Upload Image
 			  		<input
 			    		type="file"
 			    		hidden
@@ -102,7 +102,7 @@ export default function Editor() {
 				<div className={classes.border}/>
 			</div>
 			<div className={classes.div}>
-				<span className={classes.content1}>Select an image</span>
+				<span className={classes.content1}>Select ready to use image</span>
 			</div>
 		</div>
 		<div className={classes.root}>
