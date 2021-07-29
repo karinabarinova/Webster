@@ -122,6 +122,7 @@ export default function Editor() {
 		const pdf = new jsPDF();
 		pdf.addImage(divImage, 'PNG', 0, 0);
 		pdf.save(`${generateName()}.pdf`);
+		setNewImgData('')
 	}
 
 	//move this code
