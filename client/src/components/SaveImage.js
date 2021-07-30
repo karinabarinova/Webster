@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { makeStyles } from "@material-ui/core/styles";
 import Button from '@material-ui/core/Button';
 import canvasToImage from 'canvas-to-image';
 import { jsPDF } from "jspdf";
 import { generateName } from '../helpers/generateName';
+import SocialModal from './SocialModal';
+
 
 const useStyles = makeStyles((theme) => ({
 	divFlex: {
@@ -29,6 +31,7 @@ const useStyles = makeStyles((theme) => ({
 
 export default function SaveImage({ newImgData, setNewImgData }) {
     const classes = useStyles();
+	const [social, showSocial] = useState(false);
 
     function saveAsJPG(canva) {
 		canvasToImage(canva, {
@@ -36,7 +39,7 @@ export default function SaveImage({ newImgData, setNewImgData }) {
 			type: 'jpg',
 			quality: 1
 		});
-		setNewImgData('')
+		showSocial(!social)
 	}
 
 	function saveAsPNG(canva) {
@@ -45,7 +48,7 @@ export default function SaveImage({ newImgData, setNewImgData }) {
 			type: 'png',
 			quality: 1
 		});
-		setNewImgData('')
+		showSocial(!social)
 	}
 
 	function saveAsPDF(canva) {
@@ -53,7 +56,7 @@ export default function SaveImage({ newImgData, setNewImgData }) {
 		const pdf = new jsPDF();
 		pdf.addImage(divImage, 'PNG', 0, 0);
 		pdf.save(`${generateName()}.pdf`);
-		setNewImgData('')
+		showSocial(!social)
 	}
 
     return (
@@ -82,6 +85,7 @@ export default function SaveImage({ newImgData, setNewImgData }) {
 			>
 				Save  as  PDF
 			</Button>
+			<SocialModal show={social} close={showSocial} setNewImgData={setNewImgData}/>
 		</div>
     )
 }
