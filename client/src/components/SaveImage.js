@@ -7,6 +7,7 @@ import { generateName } from '../helpers/generateName';
 import SocialModal from './SocialModal';
 import { useDispatch } from "react-redux"
 import { saveProject } from '../store/project/projectSlice';
+import FileSaver from 'file-saver';
 
 const useStyles = makeStyles((theme) => ({
 	divFlex: {
@@ -18,7 +19,8 @@ const useStyles = makeStyles((theme) => ({
 		borderRadius: "5px",
     	display: "flex",
     	alignItems: "center",
-    	justifyContent: "space-evenly"
+    	justifyContent: "space-evenly",
+		flexWrap: 'wrap'
 	},
 	hidden: {
 		display: 'none'
@@ -38,10 +40,14 @@ export default function SaveImage({ newImgData, setNewImgData }) {
 	function saveOnServer(canva, name, format) {
 		canva.toBlob((blob) => {
 			const formData = new FormData();
-			formData.append('image', blob, `${name}.${format}`); //do we need name?
+			formData.append('image', blob, `${name}.${format}`);
 		  	dispatch(saveProject(formData))
 			showSocial(!social)
 		});
+	}
+
+	function downlaodImage(img, name) {
+		FileSaver(img, name)
 	}
 
     function saveAsJPG(canva) {
@@ -54,6 +60,22 @@ export default function SaveImage({ newImgData, setNewImgData }) {
 		});
 
 		saveOnServer(canva, name, 'jpg')
+	}
+
+	function saveAsJPEG(canva) {
+		const name = generateName();
+
+		const img = canva.toDataURL('image/jpeg')
+		downlaodImage(img, name);
+		saveOnServer(canva, name, 'jpg')
+	}
+
+	function saveAsWEBP(canva) {
+		const name = generateName();
+
+		const img = canva.toDataURL('image/webp')
+		downlaodImage(img, name);
+		saveOnServer(canva, name, 'webp')
 	}
 
 	function saveAsPNG(canva) {
@@ -102,6 +124,23 @@ export default function SaveImage({ newImgData, setNewImgData }) {
 				onClick={() => saveAsPDF(newImgData)}
 			>
 				Save  as  PDF
+			</Button>
+			<Button
+				variant="contained"
+				component="label"
+				className={classes.button}
+				onClick={() => saveAsJPEG(newImgData)}
+			>
+				Save  as  JPEG
+			</Button>
+			<SocialModal show={social} close={showSocial} setNewImgData={setNewImgData}/>
+			<Button
+				variant="contained"
+				component="label"
+				className={classes.button}
+				onClick={() => saveAsWEBP(newImgData)}
+			>
+				Save  as  WEBP
 			</Button>
 			<SocialModal show={social} close={showSocial} setNewImgData={setNewImgData}/>
 		</div>
