@@ -12,7 +12,7 @@ export default function Nav() {
     return (
         <NavStyles>
             <Link to='/made-on-webster'>#MadeOnWebster</Link>
-            <Link to='/get-inspired'>🧮</Link>
+            <Link to='/get-inspired'>✨</Link>
             { userData?.user?.id && (
                 <>
                     <Link to='/new-project'>+ New project</Link>
