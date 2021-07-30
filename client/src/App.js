@@ -13,7 +13,6 @@ import FeedbackWidget from "./components/Feedback";
 import CookieConsentWidget from "./components/CookieConsentWidget";
 import MainPage from './components/MainPage'
 import Editor from './pages/editor'
-import Editor2 from './pages/editor2'
 import GlobalStyle from './globalStyles';
 
 class App extends Component {
@@ -25,7 +24,6 @@ class App extends Component {
     		<Route path='/reset' exact component={ResetPage} />
     		<Route path='/profile' exact component={Account} />
         <Route path='/new-project' exact component={Editor} />
-        <Route path='/editor2' exact component={Editor2} />
     		<Route path='/' exact component={MainPage}/>
     	</Switch>
     )
