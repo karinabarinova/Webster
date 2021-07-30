@@ -13,6 +13,17 @@ export const saveProject = (image) => async (dispatch, getState) => {
         })
 }
 
+export const getAllProjects = () => async (dispatch, getState) => {
+    return jwt
+        .getAllProjects()
+        .then((data) => {
+            return dispatch(setProjects(data))
+        })
+        .catch(error => {
+            return dispatch(showMessage(error.message))
+        })
+}
+
 const initialState = {
     path: {},
     projects: {},
@@ -26,7 +37,7 @@ export const userSlice = createSlice({
             state.path = action.payload.data
         },
         setProjects: (state, action) => {
-            state.projects = action.payload
+            state.projects = action.payload.data
         },
     },
     extraReducers: {}

@@ -11,6 +11,7 @@ export default function Nav() {
     const userData = useUser();
     return (
         <NavStyles>
+            <Link to='/made-with-webster'>#MadeWithWebster</Link>
             { userData?.user?.id && (
                 <>
                     <div style={{display: "flex", lineHeight: "100%"}}>

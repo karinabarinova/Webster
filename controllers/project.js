@@ -27,11 +27,19 @@ const upload = multer( {
 })
 
 router.post('/add', upload.single('image'), add);
+router.get('/', getAll);
+
 
 module.exports = router;
 
 function add(req, res, next) {
     service.add(req.file)
+        .then((data) => res.status(200).json({data, message: "Registration successful, please check your email for verification instructions"}))
+        .catch(next);
+}
+
+function getAll(req, res, next) {
+    service.getAll()
         .then((data) => res.status(200).json({data, message: "Registration successful, please check your email for verification instructions"}))
         .catch(next);
 }

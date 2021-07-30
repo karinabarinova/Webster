@@ -14,6 +14,7 @@ import CookieConsentWidget from "./components/CookieConsentWidget";
 import MainPage from './components/MainPage'
 import Editor from './pages/editor'
 import GlobalStyle from './globalStyles';
+import MadeWithWebster from './components/MadeWithWebster';
 
 class App extends Component {
 
@@ -24,6 +25,7 @@ class App extends Component {
     		<Route path='/reset' exact component={ResetPage} />
     		<Route path='/profile' exact component={Account} />
         <Route path='/new-project' exact component={Editor} />
+        <Route path='/made-with-webster' exact component={MadeWithWebster} />
     		<Route path='/' exact component={MainPage}/>
     	</Switch>
     )

@@ -232,6 +232,19 @@ class JwtService extends Emitter {
 				});
 		});
 	}
+
+	getAllProjects = () => {
+		return new Promise((resolve, reject) => {
+			axios
+				.get(`/project/`)
+				.then(response => {
+					resolve(response.data);
+				})
+				.catch(error => {
+					reject(error.response.data);
+				});
+		});
+	}
 }
 
 const instance = new JwtService();

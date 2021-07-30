@@ -3,6 +3,7 @@ const {Project} = require('../sequelize/models');
 
 module.exports = {
     add,
+    getAll
 }
 
 async function add(image) {
@@ -12,5 +13,9 @@ async function add(image) {
         path: image.path,
     })
     return project.path
+}
+
+async function getAll() {
+    return await Project.findAll();
 }
 
