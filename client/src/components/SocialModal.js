@@ -14,7 +14,10 @@ import {
     TwitterShareButton, TwitterIcon, 
     WhatsappShareButton, WhatsappIcon, 
     LinkedinShareButton, LinkedinIcon,
-    PinterestShareButton, PinterestIcon
+    PinterestShareButton, PinterestIcon,
+    VKShareButton, VKIcon,
+    OKShareButton, OKIcon,
+    WeiboShareButton, WeiboIcon
 } from "react-share";
 import { useSelector } from 'react-redux';
 
@@ -136,6 +139,27 @@ export default function SocialModal({show, close, setNewImgData}) {
             >
                 <PinterestIcon size={36} round={true} />
             </PinterestShareButton>
+            <VKShareButton
+            url={"http://webster.com"}
+            image={`http://localhost:3006/uploads/${path.replace('resources\\uploads', '/')}`}
+            className={classes.socialMediaButton}
+          >
+            <VKIcon size={36} round />
+          </VKShareButton>
+          <OKShareButton
+            url={"http://webster.com"}
+            image={`http://localhost:3006/uploads/${path.replace('resources\\uploads', '/')}`}
+            className={classes.socialMediaButton}
+          >
+            <OKIcon size={36} round />
+          </OKShareButton>
+          <WeiboShareButton
+             url={"http://webster.com"}
+             image={`http://localhost:3006/uploads/${path.replace('resources\\uploads', '/')}`}
+             className={classes.socialMediaButton}
+          >
+            <WeiboIcon size={36} round />
+          </WeiboShareButton>
         </DialogContent>
         <DialogActions>
           <Button autoFocus onClick={closeModal} color="primary">
