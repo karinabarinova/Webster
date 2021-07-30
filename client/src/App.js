@@ -25,7 +25,7 @@ class App extends Component {
     		<Route path='/reset' exact component={ResetPage} />
     		<Route path='/profile' exact component={Account} />
         <Route path='/new-project' exact component={Editor} />
-        <Route path='/made-with-webster' exact component={MadeWithWebster} />
+        <Route path='/made-on-webster' exact component={MadeWithWebster} />
     		<Route path='/' exact component={MainPage}/>
     	</Switch>
     )
