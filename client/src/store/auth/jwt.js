@@ -2,8 +2,6 @@ import axios from 'axios';
 import jwtDecode from 'jwt-decode';
 import Emitter from './eventEmmiter'
 
-
-
 class JwtService extends Emitter {
     init() {
         this.setInterceptors();

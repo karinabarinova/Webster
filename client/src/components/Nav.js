@@ -12,12 +12,10 @@ export default function Nav() {
     return (
         <NavStyles>
             <Link to='/made-on-webster'>#MadeOnWebster</Link>
+            <Link to='/get-inspired'>🧮</Link>
             { userData?.user?.id && (
                 <>
-                    <div style={{display: "flex", lineHeight: "100%"}}>
-                        <img src='/yas.png' width="55px" alt="yas"/>
-                        <Link to='/new-project'>+ New project</Link>
-                    </div>
+                    <Link to='/new-project'>+ New project</Link>
                     <Link to='/profile'>{t("PROFILE")}</Link>
                     <SignOut />
                 </>
