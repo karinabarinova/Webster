@@ -13,6 +13,7 @@ export default function Editor() {
 		<SelectImage setSrc={setSrc} newImgData={newImgData} />
 		<ImageGrid newImgData={newImgData} setSrc={setSrc} />
     	<FilerobotImageEditor
+			config={{ translations: { en: { 'header.image_editor_title': 'Webster Editor', } }, language: "en"}}
     		show={!!src}
     		src={src}
     		onClose={() => setSrc('')}
