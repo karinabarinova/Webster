@@ -162,65 +162,10 @@ class JwtService extends Emitter {
 		});
 	}
 
-	removeEvent = id => {
-		return axios.delete(`/event/${id}`);
-	};
-
-	checkout = data => {
-		return new Promise((resolve, reject) => {
-			axios
-				.post('/user/purchase', data)
-				.then(response => {
-					resolve(response.data);
-				})
-				.catch(error => {
-					reject(error.response.data);
-				});
-		});
-	}
-	createEvent = data => {
-		return new Promise((resolve, reject) => {
-			axios
-				.post('/event/add', data)
-				.then(response => {
-					resolve(response.data);
-				})
-				.catch(error => {
-					reject(error.response.data);
-				});
-		});
-	}
-
-	createCompany = data => {
-		return new Promise((resolve, reject) => {
-			axios
-				.post('/company/add', data)
-				.then(response => {
-					resolve(response.data);
-				})
-				.catch(error => {
-					reject(error.response.data);
-				});
-		});
-	}
-
 	getUserInfo = () => {
 		return new Promise((resolve, reject) => {
 			axios
 				.get('/user/')
-				.then(response => {
-					resolve(response.data);
-				})
-				.catch(error => {
-					reject(error.response.data);
-				});
-		});
-	}
-
-	addComment = (data) => {
-		return new Promise((resolve, reject) => {
-			axios
-				.post(`/event/${data.id}/comment/add`, {body: data.comment})
 				.then(response => {
 					resolve(response.data);
 				})
@@ -274,38 +219,11 @@ class JwtService extends Emitter {
         });
     }
 
-	getOrders = () => {
-		return new Promise((resolve, reject) => {
-			axios
-				.get(`/user/orders`)
-				.then(response => {
-					resolve(response.data);
-				})
-				.catch(error => {
-					reject(error.response.data);
-				});
-		});
-	}
-
-	updateCompanyImage = (image, id) => {
+	saveProject = (image) => {
 		const config = { headers: { 'Content-Type': 'multipart/form-data' } }
 		return new Promise((resolve, reject) => {
 			axios
-				.post(`/company/${id}/image`, image, config)
-				.then(response => {
-					resolve(response.data);
-				})
-				.catch(error => {
-					reject(error.response.data);
-				});
-		});
-	}
-
-	updateEventImage = (image, id) => {
-		const config = { headers: { 'Content-Type': 'multipart/form-data' } }
-		return new Promise((resolve, reject) => {
-			axios
-				.post(`/event/${id}/image`, image, config)
+				.post(`/project/add`, image, config)
 				.then(response => {
 					resolve(response.data);
 				})

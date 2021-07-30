@@ -18,7 +18,7 @@ export default function SignIn() {
         e.preventDefault();
         dispatch(login(inputs));
         resetForm();
-        history.push('/account')
+        history.push('/profile')
     }
 
     return (

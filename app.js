@@ -61,6 +61,7 @@ app.post('/api/google', async (req, res, next) => {
 app.use(express.static(public));
 app.use('/api/auth', require('./controllers/auth'));
 app.use('/api/user', require('./controllers/user'));
+app.use('/api/project', require('./controllers/project'));
 
 app.listen(port, () => {
     console.log("App is listening on port " + port);

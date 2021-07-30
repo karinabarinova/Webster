@@ -5,7 +5,8 @@ import canvasToImage from 'canvas-to-image';
 import { jsPDF } from "jspdf";
 import { generateName } from '../helpers/generateName';
 import SocialModal from './SocialModal';
-
+import { useDispatch } from "react-redux"
+import { saveProject } from '../store/project/projectSlice';
 
 const useStyles = makeStyles((theme) => ({
 	divFlex: {
@@ -32,31 +33,48 @@ const useStyles = makeStyles((theme) => ({
 export default function SaveImage({ newImgData, setNewImgData }) {
     const classes = useStyles();
 	const [social, showSocial] = useState(false);
+	const dispatch = useDispatch();
+
+	function saveOnServer(canva, name, format) {
+		canva.toBlob((blob) => {
+			const formData = new FormData();
+			formData.append('image', blob, `${name}.${format}`); //do we need name?
+		  	dispatch(saveProject(formData))
+			showSocial(!social)
+		});
+	}
 
     function saveAsJPG(canva) {
+		const name = generateName();
+
 		canvasToImage(canva, {
-			name: generateName(),
+			name,
 			type: 'jpg',
 			quality: 1
 		});
-		showSocial(!social)
+
+		saveOnServer(canva, name, 'jpg')
 	}
 
 	function saveAsPNG(canva) {
+		const name = generateName();
+
 		canvasToImage(canva, {
-			name: generateName(),
+			name,
 			type: 'png',
 			quality: 1
 		});
-		showSocial(!social)
+		saveOnServer(canva, name, 'png')
 	}
 
 	function saveAsPDF(canva) {
+		const name = generateName();
+
 		const divImage = canva.toDataURL("image/png");
 		const pdf = new jsPDF();
 		pdf.addImage(divImage, 'PNG', 0, 0);
-		pdf.save(`${generateName()}.pdf`);
-		showSocial(!social)
+		pdf.save(`${name}.pdf`);
+		saveOnServer(canva, name, 'pdf')
 	}
 
     return (

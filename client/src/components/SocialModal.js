@@ -16,6 +16,7 @@ import {
     LinkedinShareButton, LinkedinIcon,
     PinterestShareButton, PinterestIcon
 } from "react-share";
+import { useSelector } from 'react-redux';
 
 const styles = (theme) => ({
   root: {
@@ -79,11 +80,13 @@ const useStyles = makeStyles((theme) => ({
 
 export default function SocialModal({show, close, setNewImgData}) {
     const classes = useStyles();
+    const path = useSelector(({project}) => project.path)
 
     function closeModal() {
         close(false)
         setNewImgData('')
     }
+    if (!path.length) return null;
     return (
     <div>
       <Dialog aria-labelledby="customized-dialog-title" open={show}>
@@ -91,7 +94,7 @@ export default function SocialModal({show, close, setNewImgData}) {
           Share on social media
         </DialogTitle>
         <DialogContent dividers className={classes.socialMediaPopper}>
-            <HelmetMetaData></HelmetMetaData>
+            <HelmetMetaData image={`http://localhost:3006/uploads/${path.replace('resources\\uploads', '/')}`}></HelmetMetaData>
             <FacebookShareButton
                 url={"http://webster.com"}
                 quote={"Webster Image Editor"}
@@ -104,6 +107,7 @@ export default function SocialModal({show, close, setNewImgData}) {
                 url={"http://webster.com"}
                 title={"Webster Image Editor"}
                 hashtag="#webster"
+                imageUrl={`http://localhost:3006/uploads/${path.replace('resources\\uploads', '/')}`}
                 className={classes.socialMediaButton}
             >
                 <TwitterIcon size={36} round={true} />
@@ -126,7 +130,7 @@ export default function SocialModal({show, close, setNewImgData}) {
             </LinkedinShareButton>
             <PinterestShareButton
                 url={"http://webster.com"}
-                media={"https://scaleflex.airstore.io/demo/stephen-walker-unsplash.jpg"}
+                media={`http://localhost:3006/uploads/${path.replace('resources\\uploads', '/')}`}
                 description ={"Checkout the design I created with the amazing service - Webster Image Editor"}
                 className={classes.socialMediaButton}
             >

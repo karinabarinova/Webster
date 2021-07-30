@@ -51,7 +51,6 @@ async function uploadAvatar (id, avatar) {
             id: id
         }
     })
-    console.log(user)
     if (!user) throw 'Oops something wrong'
 
     if (avatar) {
