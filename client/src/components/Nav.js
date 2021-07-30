@@ -5,17 +5,30 @@ import NavStyles from './styles/NavStyles';
 import { useUser } from './User';
 import { useTranslation } from 'react-i18next';
 import LanguageSwitcher from './LanguageSwitcher';
+import { Button } from '@material-ui/core';
 
 export default function Nav() {
     const { t } = useTranslation('common');
     const userData = useUser();
     return (
         <NavStyles>
+            <Link to='/get-inspired'>✨Inspire</Link>
             <Link to='/made-on-webster'>#MadeOnWebster</Link>
-            <Link to='/get-inspired'>✨</Link>
             { userData?.user?.id && (
                 <>
-                    <Link to='/new-project'>+ New project</Link>
+                    <Link to='/new-project'>
+                        <Button
+                            variant="contained"
+                            component="label"
+                            style={{
+                                backgroundColor: "#6C63FF", 
+                                color: 'white', 
+                                fontSize: 18,
+                                fontWeight: 700,
+                                padding: '1rem'
+                            }}
+                        >+ New project</Button>
+                    </Link>
                     <Link to='/profile'>{t("PROFILE")}</Link>
                     <SignOut />
                 </>
