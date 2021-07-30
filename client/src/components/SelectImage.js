@@ -45,6 +45,11 @@ const useStyles = makeStyles((theme) => ({
 	hidden: {
 		display: 'none'
 	},
+	button: {
+		backgroundColor: "#6C63FF", 
+		color: 'white', 
+		fontWeight: 700
+	}
 }));
 
 export default function SelectImage({setSrc, newImgData}) {
@@ -56,6 +61,7 @@ export default function SelectImage({setSrc, newImgData}) {
 				<Button
 				  variant="contained"
 				  component="label"
+				  className={classes.button}
 				>
 			  		Upload Image
 			  		<input
