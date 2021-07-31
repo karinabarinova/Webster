@@ -1,5 +1,5 @@
 import Button from '@material-ui/core/Button';
-import { addPassword, addEmail, addAvatar } from "../store/user/userSlice";
+import { addPassword, addName, addEmail, addAvatar } from "../store/user/userSlice";
 import { useDispatch } from "react-redux";
 import useForm from '../lib/useForm';
 import React, { useState } from 'react';
@@ -12,10 +12,12 @@ export default function EditInfoTab({user}) {
     const { inputs, handleChange } = useForm({
         password: '',
         email: user?.email,
+        fullName: user?.fullName
     });
 
     const [emailStyle, setEmailStyle] = useState(false)
     const [passwordStyle, setPasswordStyle] = useState(false)
+    const [nameStyle, setNameStyle] = useState(false)
 
     const style = {
         background: '#6C63FF', color: 'white', padding: '1rem', margin: '1rem', fontSize: 14
@@ -93,6 +95,35 @@ export default function EditInfoTab({user}) {
                 )}
                 
             </div>
+
+                <div>
+                    <Button
+                        variant="contained"
+                        onClick={() => setNameStyle(!nameStyle)}
+                        style={style}
+                    >Change Name 📧
+                    </Button>
+                    {nameStyle && (
+                        <>
+                            <input
+                                variant="contained"
+                                style={{...style2}}
+                                name="fullName"
+                                id="fullName"
+                                type="text"
+                                placeholder="NEW FULL NAME"
+                                onChange={handleChange}
+                            />
+                            <Button
+                                variant="contained"
+                                variant="contained"
+                                onClick={() => dispatch(addName( inputs.fullName ))}
+                                style={{...style2}}
+                            >ADD</Button>
+                        </>
+                    )}
+
+                </div>
 
                 <div>
                     <Form onSubmit={async (e) => {

@@ -7,7 +7,8 @@ module.exports = {
     getUserInfo,
     changePassword,
     changeMail,
-    uploadAvatar
+    uploadAvatar,
+    changeName
 }
 
 async function getUserInfo(userId) {
@@ -44,6 +45,22 @@ async function changePassword(id, password) {
         user.save()
     }
 }
+
+async function changeName(id, name) {
+    const user = await User.findOne({
+        where: {
+            id: id
+        }
+    })
+
+    if (!user) throw 'Oops something wrong'
+
+    if (name) {
+        user.fullName = name
+        user.save()
+    }
+}
+
 
 async function uploadAvatar (id, avatar) {
     const user = await User.findOne({

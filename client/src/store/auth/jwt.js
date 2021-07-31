@@ -203,7 +203,25 @@ class JwtService extends Emitter {
 
 	};
 
+
+	addName = fullName => {
+		return new Promise((resolve, reject) => {
+			axios
+				.post('/user/change-fullName', {fullName})
+				.then(response => {
+					resolve(response.data);
+				})
+				.catch(error => {
+					reject(error.response.data);
+				});
+
+		});
+
+	};
+
+
 	addAvatar = avatar => {
+		console.log(avatar)
          const config = { headers: { 'Content-Type': 'multipart/form-data' } }
         return new Promise((resolve, reject) => {
             axios
