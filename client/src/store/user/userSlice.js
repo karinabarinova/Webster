@@ -25,6 +25,18 @@ export const addPassword = password => async (dispatch) => {
         })
 }
 
+export const addName = fullName => async (dispatch) => {
+    console.log(fullName)
+    return jwt
+        .addName(fullName)
+        .then((data) => {
+            return dispatch(showMessage(data.message))
+        })
+        .catch(error => {
+            return dispatch(showMessage(error.message))
+        })
+}
+
 
 export const addAvatar = avatar => async (dispatch) => {
     console.log(avatar.get('image'))

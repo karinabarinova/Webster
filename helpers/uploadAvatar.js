@@ -16,7 +16,7 @@ const upload = multer ({
     storage: storage,
     destination: 'resources/uploads',
     limits: {
-        fileSize: 1000000
+        fileSize: 10000000
     },
     fileFilter (req, file, cb) {
         if (!file.originalname.match(/\.(jpg|jpeg|png)$/))

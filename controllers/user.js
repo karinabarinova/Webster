@@ -6,6 +6,7 @@ const upload = require('../helpers/uploadAvatar')
 
 router.get('/',  authJwt.verifyToken, getUserInfo);
 router.post('/change-password', authJwt.verifyToken, changePasswordInAccount)
+router.post('/change-fullName', authJwt.verifyToken, changeNameInAccount)
 router.post('/change-email', authJwt.verifyToken, changeEmailInAccount)
 router.post('/upload-avatar', authJwt.verifyToken, upload.single('image'),changeAvatarInAccount)
 //TODO: edit/getByID subscriptions
@@ -21,6 +22,12 @@ function getUserInfo(req, res, next) {
 function changePasswordInAccount (req, res, next) {
     service.changePassword(req.userId,  req.body.password)
         .then(() => res.json({ message: 'Password updated successfully' }))
+        .catch(next);
+}
+
+function changeNameInAccount (req, res, next) {
+    service.changeName(req.userId,  req.body.fullName)
+        .then(() => res.json({ message: 'Name updated successfully' }))
         .catch(next);
 }
 
