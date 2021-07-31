@@ -35,10 +35,10 @@ export default function EditInfoTab({user}) {
 
     return (
         <div id="input" style={{
-                display: 'flex',
-                justifyContent: 'center',
-                margin: '1rem',
-                padding: '1rem'
+            display: 'flex',
+            justifyContent: 'center',
+            margin: '1rem',
+            padding: '1rem'
             }}
         >
             <div>
@@ -56,7 +56,7 @@ export default function EditInfoTab({user}) {
                             id="password" 
                             name="password"
                             type="password" 
-                            placeholder="NEW PASSWORD" 
+                            placeholder="New password" 
                             onChange={handleChange}
                         />
                         <Button 
@@ -82,7 +82,7 @@ export default function EditInfoTab({user}) {
                             name="email"
                             id="email" 
                             type="email" 
-                            placeholder="NEW EMAIL" 
+                            placeholder="New email" 
                             onChange={handleChange}
                         />
                         <Button 
@@ -111,7 +111,7 @@ export default function EditInfoTab({user}) {
                                 name="fullName"
                                 id="fullName"
                                 type="text"
-                                placeholder="NEW FULL NAME"
+                                placeholder="New full name"
                                 onChange={handleChange}
                             />
                             <Button
