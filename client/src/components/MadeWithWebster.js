@@ -62,7 +62,7 @@ export default function ImageGrid({newImgData, setSrc}) {
 				<Lightbox
 				mainSrc={`http://localhost:3006/uploads/${projects[index].path.replace('resources\\uploads', '/')}`}
 				nextSrc={`http://localhost:3006/uploads/${projects[(index + 1) % projects.length].path.replace('resources\\uploads', '/')}`}
-				prevSrc={`http://localhost:3006/uploads/${projects[(index - 1) % projects.length].path.replace('resources\\uploads', '/')}`}
+				// prevSrc={`http://localhost:3006/uploads/${projects[(index - 1) % projects.length].path.replace('resources\\uploads', '/')}`}
 				onCloseRequest={() => setOpen(false)}
 				onMovePrevRequest={() =>
 				  setIndex((index - 1) >= 1 ? index - 1 : projects.length - 1)

@@ -61,7 +61,7 @@ export default function Inspire() {
 				<Lightbox
 				mainSrc={images[index].download_url}
 				nextSrc={images[(index + 1) % images.length].download_url}
-				prevSrc={images[(index - 1) % images.length].download_url}
+				// prevSrc={images[(index - 1) % images.length].download_url}
 				onCloseRequest={() => setOpen(false)}
 				onMovePrevRequest={() =>
 				  setIndex((index - 1) >= 1 ? index - 1 : images.length - 1)
