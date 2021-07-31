@@ -30,7 +30,7 @@ const DropDownContent = styled.div`
 	  min-width: 160px;
 	  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
 	  z-index: 10;
-	  top: 10rem;
+	  top: 5rem;
 	  border: 0;
 	a {
 		float: none;
