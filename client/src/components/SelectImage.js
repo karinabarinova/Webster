@@ -11,7 +11,7 @@ const useStyles = makeStyles((theme) => ({
 		alignItems: "center",
 		overflow: "hidden",
 		backgroundColor: theme.palette.background.paper,
-		padding: '3rem 3rem 0 3rem'
+		padding: '0 3rem'
 	},
 	div: {
 		padding: '2rem'

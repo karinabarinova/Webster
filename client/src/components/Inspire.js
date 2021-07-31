@@ -5,6 +5,7 @@ import GridList from "@material-ui/core/GridList";
 import GridListTile from "@material-ui/core/GridListTile";
 import ListSubheader from "@material-ui/core/ListSubheader";
 import Lightbox from 'react-image-lightbox';
+import YoutubePlayer from './YoutubePlayer';
 
 const useStyles = makeStyles((theme) => ({
 	root: {
@@ -47,6 +48,7 @@ export default function Inspire() {
 
     return (
         <div className={classes.root}>
+			<YoutubePlayer />
             <GridList cellHeight={300} className={classes.gridList} cols={4}>
                 <GridListTile key="Subheader" cols={4} style={{ height: "auto"}}>
                     <ListSubheader className={classes.header} component="h3">#GetInspired</ListSubheader>
