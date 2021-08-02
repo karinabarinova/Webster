@@ -18,7 +18,7 @@ function AboutTab({user}) {
 				<div className="flex flex-col flex-1 md:ltr:pr-32 md:rtl:pl-32">
 					<Card className="w-full mb-32 rounded-16 shadow">
                         <div style={{ padding: '1rem'}}>
-                            <Avatar alt={user.name} src={user?.profile_picture ? "http://localhost:3006/" + 'uploads/' + user.profile_picture.replace('resources', '') : "/1.jpg"} style={{width: 150, height: 150, margin: 'auto'}} />
+                            <Avatar alt={user.name} src={user?.profile_picture.length ? "http://localhost:3006/" + 'uploads/' + user.profile_picture.replace('resources', '') : "/1.jpg"} style={{width: 150, height: 150, margin: 'auto'}} />
                         </div>
 						<AppBar position="static" elevation={1} style={{backgroundColor: '#6C63FF'}}>
 							<Toolbar className="px-8">
