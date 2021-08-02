@@ -4,6 +4,7 @@ import GridList from "@material-ui/core/GridList";
 import GridListTile from "@material-ui/core/GridListTile";
 import ListSubheader from "@material-ui/core/ListSubheader";
 import itemData from '../helpers/BackgroundData';
+import { useTranslation } from 'react-i18next';
 
 const useStyles = makeStyles((theme) => ({
 	root: {
@@ -32,13 +33,14 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function ImageGrid({newImgData, setSrc}) {
+	const { t } = useTranslation('common');
     const classes = useStyles();
 
     return (
         <div className={newImgData ? classes.hidden : classes.root}>
             <GridList cellHeight={300} className={classes.gridList} cols={4}>
                 <GridListTile key="Subheader" cols={4} style={{ height: "auto"}}>
-                    <ListSubheader className={classes.header} component="h3">Default Backgrounds</ListSubheader>
+                    <ListSubheader className={classes.header} component="h3">{t("DEFAULT_BACKGROUND")}</ListSubheader>
                 </GridListTile>
                 {itemData.map((tile, idx) => (
                     <GridListTile key={idx} onClick={() => setSrc(tile.img)}>

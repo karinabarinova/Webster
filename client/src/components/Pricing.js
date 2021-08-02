@@ -126,9 +126,8 @@ export default function Pricing() {
                 <PricingCardCost>$5.99</PricingCardCost>
                 <PricingCardLength>per month</PricingCardLength>
                 <PricingCardFeatures>
-                  <PricingCardFeature>10 New Users</PricingCardFeature>
-                  <PricingCardFeature>5 Calendars</PricingCardFeature>
-                  <PricingCardFeature>Advanced Recurring Reminders</PricingCardFeature>
+                  <PricingCardFeature>10 New Projects</PricingCardFeature>
+                  <PricingCardFeature>Get Featured</PricingCardFeature>
                   <PricingCardFeature>Color Tags</PricingCardFeature>
                 </PricingCardFeatures>
                 <Button primary>Choose Plan</Button>
@@ -143,8 +142,7 @@ export default function Pricing() {
                 <PricingCardCost>$19.99</PricingCardCost>
                 <PricingCardLength>per month</PricingCardLength>
                 <PricingCardFeatures>
-                  <PricingCardFeature>30 New Users</PricingCardFeature>
-                  <PricingCardFeature>10 Calendars</PricingCardFeature>
+                  <PricingCardFeature>30 New Projects</PricingCardFeature>
                   <PricingCardFeature>Unlimited Daily Planner</PricingCardFeature>
                   <PricingCardFeature>Customized Themes</PricingCardFeature>
                 </PricingCardFeatures>
@@ -160,10 +158,9 @@ export default function Pricing() {
                 <PricingCardCost>$29.99</PricingCardCost>
                 <PricingCardLength>per month</PricingCardLength>
                 <PricingCardFeatures>
-                  <PricingCardFeature>Unlimited Users</PricingCardFeature>
-                  <PricingCardFeature>Unlimited Calendats</PricingCardFeature>
+                  <PricingCardFeature>Unlimited Projects</PricingCardFeature>
                   <PricingCardFeature>24/7 Support</PricingCardFeature>
-                  <PricingCardFeature>Location Reminders(Mobile)</PricingCardFeature>
+                  <PricingCardFeature>All new features available</PricingCardFeature>
                 </PricingCardFeatures>
                 <Button primary>Choose Plan</Button>
               </PricingCardInfo>

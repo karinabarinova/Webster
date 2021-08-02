@@ -4,6 +4,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import GridList from "@material-ui/core/GridList";
 import GridListTile from "@material-ui/core/GridListTile";
 import ListSubheader from "@material-ui/core/ListSubheader";
+import { useTranslation } from 'react-i18next';
 
 const useStyles = makeStyles((theme) => ({
 	gridList: {
@@ -24,12 +25,13 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function YoutubePlayer() {
+    const { t } = useTranslation('common');
     const classes = useStyles();
 
     return (
         <GridList cellHeight={500} className={classes.gridList} cols={1}>
             <GridListTile key="Subheader" cols={1} style={{ height: "auto"}}>
-                <ListSubheader className={classes.header} component="h3">Some Lo-Fi vibes🎹 for better work flow💻</ListSubheader>
+                <ListSubheader className={classes.header} component="h3">{t("SOME_VIBES")}🎹 {t("BETTER_WORK")}💻</ListSubheader>
             </GridListTile>
             <GridListTile>
                 <ReactPlayer 

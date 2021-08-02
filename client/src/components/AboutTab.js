@@ -5,8 +5,11 @@ import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
+import { useTranslation } from 'react-i18next';
 
 function AboutTab({user}) {
+	const { t } = useTranslation('common');
+
 	let data = <h1>Page not found</h1>
 	if (user) {
 		data = (
@@ -20,24 +23,24 @@ function AboutTab({user}) {
 						<AppBar position="static" elevation={1} style={{backgroundColor: '#6C63FF'}}>
 							<Toolbar className="px-8">
 								<Typography color="inherit" className="flex-1 px-12 font-medium" style={{fontSize: 22}}>
-									General Information
+									{t("GENERAL_INFO")}
 								</Typography>
 							</Toolbar>
 						</AppBar>
 
 						<CardContent>
 							<div className="mb-24">
-								<Typography className="font-semibold mb-4 text-15" style={{fontSize: 18, textDecoration: 'underline'}}>Full Name</Typography>
+								<Typography className="font-semibold mb-4 text-15" style={{fontSize: 18, textDecoration: 'underline'}}>{t("NAME")}</Typography>
 								<Typography style={{fontSize: 18}}>{user.name}</Typography>
 							</div>
 
 							<div className="mb-24">
-								<Typography className="font-semibold mb-4 text-15" style={{fontSize: 18, textDecoration: 'underline'}}>Email</Typography>
+								<Typography className="font-semibold mb-4 text-15" style={{fontSize: 18, textDecoration: 'underline'}}>{t("EMAIL")}</Typography>
                                 <Typography style={{fontSize: 18}}>{user.email}</Typography>
 							</div>
 
 							<div className="mb-24">
-								<Typography className="font-semibold mb-4 text-15" style={{fontSize: 18, textDecoration: 'underline'}}>About Me</Typography>
+								<Typography className="font-semibold mb-4 text-15" style={{fontSize: 18, textDecoration: 'underline'}}>{t("ABOUT_ME")}</Typography>
 								<Typography style={{fontSize: 18}}>Type here...</Typography>
 							</div>
 						</CardContent>

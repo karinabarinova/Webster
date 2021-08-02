@@ -6,6 +6,7 @@ import GridListTile from "@material-ui/core/GridListTile";
 import ListSubheader from "@material-ui/core/ListSubheader";
 import Lightbox from 'react-image-lightbox';
 import YoutubePlayer from './YoutubePlayer';
+import { useTranslation } from 'react-i18next';
 
 const useStyles = makeStyles((theme) => ({
 	root: {
@@ -31,6 +32,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function Inspire() {
+	const { t } = useTranslation('common');
     const classes = useStyles();
 	const [images, setImages] = useState([])
 	const [index, setIndex] = useState(0);
@@ -51,7 +53,7 @@ export default function Inspire() {
 			<YoutubePlayer />
             <GridList cellHeight={300} className={classes.gridList} cols={4}>
                 <GridListTile key="Subheader" cols={4} style={{ height: "auto"}}>
-                    <ListSubheader className={classes.header} component="h3">#GetInspired</ListSubheader>
+                    <ListSubheader className={classes.header} component="h3">#{t("GET_INSPIRED")}</ListSubheader>
                 </GridListTile>
                 {images.map((tile, idx) => (
                     <GridListTile key={idx} onClick={() => {setIndex(idx); setOpen(true)}}>

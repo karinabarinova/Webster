@@ -4,9 +4,10 @@ import { useDispatch } from "react-redux";
 import useForm from '../lib/useForm';
 import React, { useState } from 'react';
 import Form from "./styles/Form";
+import { useTranslation } from 'react-i18next';
 
 export default function EditInfoTab({user}) {
-
+    const { t } = useTranslation('common');
     const dispatch = useDispatch()
     const [image, setImage] = useState('');
     const { inputs, handleChange } = useForm({
@@ -46,7 +47,7 @@ export default function EditInfoTab({user}) {
                     variant="contained" 
                     onClick={() => setPasswordStyle(!passwordStyle)}  
                     style={style}
-                > Change Password 🔐
+                > {t("CHANGE_PASS")} 🔐
                 </Button>
                 {passwordStyle && (
                     <>
@@ -56,7 +57,7 @@ export default function EditInfoTab({user}) {
                             id="password" 
                             name="password"
                             type="password" 
-                            placeholder="New password" 
+                            placeholder={t("NEW_PASS")}
                             onChange={handleChange}
                         />
                         <Button 
@@ -72,7 +73,7 @@ export default function EditInfoTab({user}) {
                     variant="contained" 
                     onClick={() => setEmailStyle(!emailStyle)}  
                     style={style}
-                >Change Email 📧
+                >{t("CHANGE_EMAIL")} 📧
                 </Button>
                 {emailStyle && (
                     <>
@@ -82,7 +83,7 @@ export default function EditInfoTab({user}) {
                             name="email"
                             id="email" 
                             type="email" 
-                            placeholder="New email" 
+                            placeholder={t("NEW_EMAIL")} 
                             onChange={handleChange}
                         />
                         <Button 
@@ -101,7 +102,7 @@ export default function EditInfoTab({user}) {
                         variant="contained"
                         onClick={() => setNameStyle(!nameStyle)}
                         style={style}
-                    >Change Name 📧
+                    >{t("CHANGE_NAME")} 📧
                     </Button>
                     {nameStyle && (
                         <>
@@ -111,7 +112,7 @@ export default function EditInfoTab({user}) {
                                 name="fullName"
                                 id="fullName"
                                 type="text"
-                                placeholder="New full name"
+                                placeholder={t("NEW_NAME")}
                                 onChange={handleChange}
                             />
                             <Button
@@ -144,7 +145,7 @@ export default function EditInfoTab({user}) {
                             style={{
                                 background: '#6C63FF', color: 'white', padding: '1rem', margin: '1rem', fontSize: 14
                             }}
-                        > Upload 🖼️
+                        > {t("UPLOAD")} 🖼️
                         </Button>
                     </Form>
                 </div>

@@ -12,7 +12,7 @@ export default function Nav() {
     const userData = useUser();
     return (
         <NavStyles>
-            <Link to='/get-inspired'>✨Inspire</Link>
+            <Link to='/get-inspired'>✨{t("INSPIRE")}</Link>
             <Link to='/made-on-webster'>#MadeOnWebster</Link>
             { userData?.user?.id && (
                 <>
@@ -27,7 +27,7 @@ export default function Nav() {
                                 fontWeight: 700,
                                 padding: '1rem'
                             }}
-                        >+ New project</Button>
+                        >+ {t("NEW_PROJECT")}</Button>
                     </Link>
                     <Link to='/profile'>{t("PROFILE")}</Link>
                     <SignOut />

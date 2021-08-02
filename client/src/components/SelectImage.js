@@ -1,6 +1,7 @@
 import React from 'react';
 import { makeStyles } from "@material-ui/core/styles";
 import Button from '@material-ui/core/Button';
+import { useTranslation } from 'react-i18next';
 
 const useStyles = makeStyles((theme) => ({
 	upload: {
@@ -53,6 +54,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function SelectImage({setSrc, newImgData}) {
+	const { t } = useTranslation('common');
     const classes = useStyles();
 
     return (
@@ -63,7 +65,7 @@ export default function SelectImage({setSrc, newImgData}) {
 				  component="label"
 				  className={classes.button}
 				>
-			  		Upload Image
+			  		{t("UPLOAD_IMAGE")}
 			  		<input
 			    		type="file"
 			    		hidden
@@ -76,11 +78,11 @@ export default function SelectImage({setSrc, newImgData}) {
 			</div>
 			<div className={classes.div, classes.container}>
 				<div className={classes.border}/>
-				<span className={classes.content}>OR</span>
+				<span className={classes.content}>{t("OR")}</span>
 				<div className={classes.border}/>
 			</div>
 			<div className={classes.div}>
-				<span className={classes.content1}>Select ready to use image</span>
+				<span className={classes.content1}>{t("SELECT_IMAGE")}</span>
 			</div>
 		</div>
     )
