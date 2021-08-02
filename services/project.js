@@ -1,4 +1,4 @@
-const {Project} = require('../sequelize/models');
+const {Project, User} = require('../sequelize/models');
 
 
 module.exports = {
@@ -6,13 +6,16 @@ module.exports = {
     getAll
 }
 
-async function add(image) {
+async function add(image, id) {
     if (!image)
         throw 'Provide an image'
+    const user = await User.findByPk(id);
     const project = await Project.create({
         path: image.path,
+        owner: id
     })
-    return project.path
+    await user.addProject(project);
+    return project.path;
 }
 
 async function getAll() {

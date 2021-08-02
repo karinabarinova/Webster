@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const service = require('../services/project');
+const authJwt = require('../middleware/authJwt');
 const multer = require('multer')
 const path = require('path')
 
@@ -26,14 +27,14 @@ const upload = multer( {
     }
 })
 
-router.post('/add', upload.single('image'), add);
+router.post('/add', authJwt.verifyToken, upload.single('image'), add);
 router.get('/', getAll);
 
 
 module.exports = router;
 
 function add(req, res, next) {
-    service.add(req.file)
+    service.add(req.file, req.userId)
         .then((data) => res.status(200).json({data, message: "Registration successful, please check your email for verification instructions"}))
         .catch(next);
 }

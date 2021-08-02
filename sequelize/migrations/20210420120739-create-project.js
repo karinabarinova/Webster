@@ -11,6 +11,9 @@ module.exports = {
       path: {
         type: Sequelize.STRING
       },
+      owner: {
+        type: Sequelize.STRING
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE

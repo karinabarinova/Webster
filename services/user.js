@@ -15,6 +15,7 @@ async function getUserInfo(userId) {
     const user = await User.findByPk(userId);
     return {
         user: basicDetails(user),
+        projects: await user.getProjects()
     };
 }
 
