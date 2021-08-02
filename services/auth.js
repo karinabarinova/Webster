@@ -30,7 +30,6 @@ async function register(params) {
         password: bcrypt.hashSync(params.password, 8),
         fullName: `${params.firstName} ${params.lastName}`,
         role,
-        profile_picture: '',
         validation_str: randomTokenString()
     })
 
