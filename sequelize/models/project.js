@@ -13,7 +13,7 @@ module.exports = (sequelize, DataTypes) => {
       models.Project.belongsToMany(models.User, { through: 'UserProjects' });
       // define association here
     }
-  };
+  }
   Project.init({
     path: {
       type: DataTypes.STRING,
